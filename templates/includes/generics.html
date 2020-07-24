@@ -1,0 +1,83 @@
+{%- macro table(table_header=None, table_content=None, table_footer=None, table_class=None) %}
+  <div class="table-responsive {{table_class}}">
+    <table class="table table-borderless">
+      {%- if table_header %}
+        <thead><tr class="border-bottom border-primary">{{ table_header }}</tr></thead>
+      {% endif %}
+      <tbody>{{ table_content }}</tbody>
+      {%- if table_footer %}
+        <tfoot><tr>{{ table_footer }}</tr></tfoot>
+      {% endif %}
+    </table>
+  </div>
+{%- endmacro %}
+{%- macro edit_btn(url) %}
+  <a href='{{ url }}' title="Düzenle" class="btn btn-info">
+    <i class="fa fa-pencil"></i>
+  </a>
+{%- endmacro %}
+
+{%- macro header(form_url=None, form_url_title=None, title=None, search_url=None) %}
+  <div class="row white z-depth-1 mb-2">
+    <div class="col-sm-6 col-md-6">
+        <h4 class="h4-responsive py-4 mx-3">
+          {%- if form_url %}
+            <a href="{{ form_url }}" class="text-primary pr-3" title="{{ form_url_title }}">
+              <i class="fal fa-lg fa-plus-circle"></i>
+            </a>
+          {% endif %}
+          {{ title }}
+        </h4>
+    </div>
+    {% if search_url %}
+      <div class="col-sm-6 col-md-6">
+          <div class="md-form float-right pr-3">
+            <form class="form-inline ml-auto" action="{{ search_url }}" method="GET">
+              <div class="md-form my-0">
+                <input id="search" type="text" name="query" class="form-control white-text"
+                  placeholder="{{ _('Search') }}" aria-label="Search">
+              </div>
+              <button href="#!" class="btn btn-outline-primary btn-rounded btn-sm px-2 waves-effect waves-light" type="submit">
+                <i class="fas fa-search"></i></button>
+            </form>
+          </div>
+      </div>
+    {% endif %}
+    {%- macro table(table_header=None, table_content=None, table_footer=None, table_class=None) %}
+    <div class="table-responsive {{table_class}}">
+    <table class="table table-borderless">
+      {%- if table_header %}
+        <thead><tr class="border-bottom border-primary">{{ table_header }}</tr></thead>
+      {% endif %}
+      <tbody>{{ table_content }}</tbody>
+      {%- if table_footer %}
+        <tfoot><tr>{{ table_footer }}</tr></tfoot>
+      {% endif %}
+    </table>
+  </div>
+    {%- endmacro %}
+  </div>
+{%- endmacro %}
+
+{%- macro danger_model_btn(confirm_url, confirm_text) %}
+  <a href="{{ confirm_url }}" class="btn btn-danger" title="Sil">
+  <i class="fa fa-trash"></i></a>
+{%- endmacro %}
+
+
+{%- macro uuid_btn(url) %}
+  <a href='{{ url }}' title="Uuid Ekleme" class="btn btn-warning">
+    <i class="fa fa-pencil"> Uuid Ekle </i>
+  </a>
+{%- endmacro %}
+{%- macro btn_dwl(url) %}
+  <a href='{{ url }}' title="Uuid Ekleme" class="btn btn-info">
+    <i class="fa fa-download"> Csv İndir </i>
+  </a>
+{%- endmacro %}
+
+{%- macro edit_btn2(url) %}
+  <a href='{{ url }}' title="Güncelleme" class="btn btn-dark">
+    <i class="fa fa-pencil"> Güncelle </i>
+  </a>
+{%- endmacro %}

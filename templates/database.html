@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+{% import "includes/generics.html" as generics %}
+{% block body %}
+<div class="jumbotron text-center">
+    <h1 style="color:red;">VERİTABANI</h1>
+    {{ generics.uuid_btn(url_for('Uuidadd',id=cx.uuid))}}
+    {{ generics.btn_dwl(url_for('downloads'))}}
+
+    <hr>
+    
+    {% set table_header %}
+    <th>İsim</th>
+    <th>Mail</th>
+    <th>Kullanıcı Adı</th>
+    <th>Parola</th>
+    <th>Uuid</th>
+    {% endset %}
+    {% set table_content %}
+    {% for r in cx['user'] %}
+
+      <tr class="border-bottom">
+        <td><a>{{ r.name }}</a></td>
+        <td><a>{{ r.email }}</a></td>
+        <td><a>{{ r.username }}</a></td>
+        <td><a>{{ r.password }}</a></td>
+        <td><a>{{ r.uuid }}</a></td>
+
+        <td class="float-right align-middle">
+
+          {{ generics.edit_btn(url_for('edit', id=r.uuid))}}
+          {% if r.uuid %}
+          {{ generics.danger_model_btn(url_for('userdelete',id=r.uuid))}}
+          
+          {% endif %}
+        </td>
+      </tr>
+    {% endfor %}
+    {% endset %}
+    <section>
+    <div class="row z-depth-1 white mb-3">
+        <div class="col-12">
+        {{ generics.table(table_header, table_content)}}
+        </div>
+    </div>
+    </section>
+</div>
+{% endblock  %}
+

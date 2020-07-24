@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% import "includes/generics.html" as generics %}
+{% block body %}
+<div class="jumbotron text-center">
+    <h1 style="color:red;">Makaleler</h1>
+    {{ generics.btn_dwl(url_for('downloadss'))}}
+
+    <hr>
+    
+    {% set table_header %}
+    <th>Başlık</th>
+    <th>İçerik</th>
+    {% endset %}
+    {% set table_content %}
+    {% for r in cx['article'] %}
+
+      <tr class="border-bottom">
+        <td><a>{{ r.title }}</a></td>
+        <td><a>{{ r.content }}</a></td>
+        <td class="float-right align-middle">
+
+          {{ generics.edit_btn(url_for('editt'))}}
+         
+        </td>
+      </tr>
+    {% endfor %}
+    {% endset %}
+    <section>
+    <div class="row z-depth-1 white mb-3">
+        <div class="col-12">
+        {{ generics.table(table_header, table_content)}}
+        </div>
+    </div>
+    </section>
+</div>
+{% endblock  %}
+

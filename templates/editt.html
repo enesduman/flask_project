@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% import "includes/generics.html" as generics %}
+{% from "includes/formhelpers.html" import render_field %}
+{% block body %}
+
+<div class="jumbotron text-center">
+
+<h1> GÜNCELLEME </h1>
+<hr>
+
+<form  action="{{url_for('addarticle')}}" method="POST">
+    {{ render_field(form.title,class = "form-control") }}
+    {{ render_field(form.content,class = "form-control") }}
+    <button class="waves-effect waves-light btn cs-background-yellow white-text" type="submit">güncelle</button>
+
+</form>
+</div>
+{% endblock  %}

@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{% block body %}
+    <div class="jumbotron text-center">
+        <h1>Kontrol Paneli</h1>
+        <h3><small>Hoşgeldin, {{session["username"]}} </small></h3>
+        <hr>
+        <a href="/dashboard/addarticle" class="btn btn-danger">Makale Ekle</a>
+    </div>
+    
+{% endblock  %}

@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+{% block body %}
+    
+    <div class="jumbotron text-center chart"> 
+    <h2>Yıllık Toplam Veri</h2>
+    <hr>
+    <a class="btn" href="/chart"><button tpye="submit" class="btn btn-danger"> Günlük Veri</button></a>
+    <a class="btn" href="/chart/mchart"><button tpye="submit" class="btn btn-success"> Aylık Veri</button></a>
+    <hr>
+    <canvas id="myChart" width="400" height="220">
+       
+    </canvas>
+    </div>
+
+ <script>
+    $( document ).ready(function() {
+        var ctx = document.getElementById('myChart').getContext('2d');
+
+        var dataset = JSON.parse('{{cx['dataset']|tojson}}')   
+        var label_list = JSON.parse('{{cx['label']|tojson}}')   
+        var color_list = JSON.parse('{{cx['colorlist']|tojson}}')   
+        var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: label_list,
+            datasets: [{
+                label: 'Yıllık Veri',
+                data: dataset,
+                backgroundColor: color_list,
+                borderColor: color_list,
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+
+});
+</script>
+
+
+{% endblock  %}

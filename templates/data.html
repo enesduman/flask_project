@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+{% block body %}
+{% from "includes/formhelpers.html" import render_field %}  
+
+    <div class="jumbotron text-center">
+
+        <h1>Veri Ekleme</h1>
+        <h3><small>Hoşgeldin, {{session["username"]}} </small></h3>
+        <hr>
+        <form method="post">
+        {{ render_field(form.date, class ="form-control") }}
+        {{ render_field(form.input_text, class ="form-control") }}
+        <button type="submit" class="btn btn-success">Veri Ekle</button>
+        </form>
+    </div>
+{% endblock  %}
