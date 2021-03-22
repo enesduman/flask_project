@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block body %}
+{% from "includes/formhelpers.html" import render_field %}
+
+<div class="jumbotron text-center">
+    <h3>Mail Gönderme</h3>
+    <form method="post">
+        {{ render_field(form.title) }}
+        {{ render_field(form.subject) }}
+        {{ render_field(form.description) }}
+        {{ render_field(form.sender) }}
+        <button  type="submit" class="btn btn-primary">Gönder</button>
+    </form>
+</div>
+
+{% endblock  %}

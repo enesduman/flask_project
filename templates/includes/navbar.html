@@ -15,9 +15,14 @@
         <ul class="navbar-nav ml-auto">
           {% if session["logged_in"] %}
             </li>
+
+            <li class="nav-item ">
+              <a class="nav-link" href="{{ url_for('mail_arayuz') }}">Mail Form </a>
+            </li>
             <li class="nav-item">
               <a class="nav-link" href="{{ url_for('article_content') }}">Makaleler </a>
             </li>
+
             <li class="nav-item ">
               <a class="nav-link" href="/data">Veri Girme </a>
             </li>
