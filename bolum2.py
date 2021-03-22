@@ -85,8 +85,8 @@ login_manager.init_app(app)
 
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 465
-app.config['MAIL_USERNAME'] = 'enes.dumann97@gmail.com'
-app.config['MAIL_PASSWORD'] = '13791379dumann'
+app.config['MAIL_USERNAME'] = 'kullanılcakmail'
+app.config['MAIL_PASSWORD'] = 'parola'
 app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
 
