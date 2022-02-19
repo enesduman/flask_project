@@ -1,4 +1,4 @@
-# blog
+# flask_project
 ```
 git clone 
 cd <project_folder>
