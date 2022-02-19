@@ -75,7 +75,6 @@ def login_required(f):
     return decorated_function
 
 
-locale.setlocale(locale.LC_ALL, "tr_TR.utf8")
 
 login_manager = LoginManager()
 app = Flask(__name__)
